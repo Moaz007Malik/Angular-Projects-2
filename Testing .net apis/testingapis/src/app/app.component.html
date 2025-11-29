@@ -1,0 +1,76 @@
+<div class="p-6 bg-white rounded shadow">
+  <h2 class="text-2xl font-bold mb-4">Games List</h2>
+
+  <ul *ngIf="games.length > 0; else noItems">
+    <li *ngFor="let item of games" class="mb-4 p-4 border rounded shadow-sm bg-gray-50">
+      <p><strong>ID:</strong> {{ item.id }}</p>
+      <p><strong>Name:</strong> {{ item.title }}</p>
+      <p><strong>Release Year:</strong> {{ item.releaseYear }}</p>
+      <p><strong>Genre:</strong> {{ item.genre }}</p>
+
+      <div class="mt-3 space-x-2">
+        <button (click)="onGameClick(item.id)" class="px-3 py-1 bg-blue-500 text-white rounded hover:bg-blue-600">
+          View
+        </button>
+        <button (click)="onEditClick(item)" class="px-3 py-1 bg-yellow-500 text-white rounded hover:bg-yellow-600">
+          Edit
+        </button>
+        <button (click)="deleteGame(item.id)" class="px-3 py-1 bg-red-500 text-white rounded hover:bg-red-600">
+          Delete
+        </button>
+      </div>
+    </li>
+  </ul>
+
+  <ng-template #noItems>
+    <p class="text-gray-500">No games found.</p>
+  </ng-template>
+
+  <p *ngIf="errorMessage" class="text-red-500 mt-4">{{ errorMessage }}</p>
+
+  <div class="mt-6 border-t pt-4">
+    <h3 class="text-xl font-semibold mb-2">
+      {{ isEditing ? 'Update Game' : 'Add New Game' }}
+    </h3>
+    <form #gameForm="ngForm" (ngSubmit)="addGame()">
+      <div class="mb-2">
+        <input
+          type="text"
+          [(ngModel)]="newGame.title"
+          name="title"
+          placeholder="Title"
+          class="border p-2 rounded w-full"
+          required
+        />
+      </div>
+      <div class="mb-2">
+        <input
+          type="number"
+          [(ngModel)]="newGame.releaseYear"
+          name="releaseYear"
+          placeholder="Release Year"
+          class="border p-2 rounded w-full"
+          required
+        />
+      </div>
+      <div class="mb-2">
+        <input
+          type="text"
+          [(ngModel)]="newGame.genre"
+          name="genre"
+          placeholder="Genre"
+          class="border p-2 rounded w-full"
+          required
+        />
+      </div>
+      <div class="flex gap-2">
+        <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">
+          {{ isEditing ? 'Update Game' : 'Add Game' }}
+        </button>
+        <button type="button" *ngIf="isEditing" (click)="resetForm()" class="px-4 py-2 bg-gray-400 text-white rounded hover:bg-gray-500">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="book-form">
+  <h2>Add Book</h2>
+  <form (ngSubmit)="addBook()">
+    <label>Title</label>
+    <input type="text" [(ngModel)]="title" name="title" required aria-label="title"/>
+
+    <label>Author</label>
+    <input type="text" [(ngModel)]="author" name="author" required aria-label="author"/>
+
+    <label>Genre</label>
+    <input type="text" [(ngModel)]="genre" name="genre" required aria-label="genre"/>
+
+    <label>Year</label>
+    <input type="number" [(ngModel)]="year" name="year" required aria-label="year"/>
+
+    <button type="submit">Save</button>
+  </form>
+</div>

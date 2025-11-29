@@ -1,0 +1,94 @@
+{
+  "students": [
+    {
+      "id": "STU001",
+      "name": "John Doe",
+      "email": "john.doe@university.edu",
+      "enrollmentDate": "2023-09-01T00:00:00.000Z",
+      "registeredCourses": ["CS101", "MATH201"],
+      "userId": "student1"
+    },
+    {
+      "id": "STU002",
+      "name": "Jane Smith",
+      "email": "jane.smith@university.edu",
+      "enrollmentDate": "2023-09-01T00:00:00.000Z",
+      "registeredCourses": ["CS101"],
+      "userId": "student2"
+    }
+  ],
+
+  "courses": [
+    {
+      "id": "CS101",
+      "name": "Computer Programming",
+      "code": "CS-101",
+      "description": "Introduction to programming concepts and logic",
+      "credits": 3,
+      "teacherId": "TCH001",
+      "enrolledStudents": ["STU001", "STU002"],
+      "maxStudents": 30
+    },
+    {
+      "id": "MATH201",
+      "name": "Calculus I",
+      "code": "MATH-201",
+      "description": "Differential and integral calculus",
+      "credits": 4,
+      "teacherId": "TCH002",
+      "enrolledStudents": ["STU001"],
+      "maxStudents": 25
+    }
+  ],
+
+  "teachers": [
+    {
+      "id": "TCH001",
+      "name": "Dr. Sarah Wilson",
+      "email": "sarah.wilson@university.edu",
+      "department": "Computer Science",
+      "specialization": "Software Engineering",
+      "assignedCourses": ["CS101"],
+      "userId": "teacher1"
+    },
+    {
+      "id": "TCH002",
+      "name": "Prof. Michael Brown",
+      "email": "michael.brown@university.edu",
+      "department": "Mathematics",
+      "specialization": "Applied Mathematics",
+      "assignedCourses": ["MATH201"],
+      "userId": "teacher2"
+    }
+  ],
+
+  "users": [
+    {
+      "id": "admin1",
+      "username": "admin",
+      "password": "admin123",
+      "role": "admin",
+      "name": "System Administrator",
+      "email": "admin@university.edu",
+      "createdAt": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "student1",
+      "username": "student1",
+      "password": "student123",
+      "role": "student",
+      "name": "John Doe",
+      "email": "john.doe@university.edu",
+      "createdAt": "2023-01-01T00:00:00.000Z"
+    },
+    {
+      "id": "teacher1",
+      "username": "teacher1",
+      "password": "teacher123",
+      "role": "teacher",
+      "name": "Dr. Sarah Wilson",
+      "email": "sarah.wilson@university.edu",
+      "createdAt": "2023-01-01T00:00:00.000Z"
+    }
+  ]
+}

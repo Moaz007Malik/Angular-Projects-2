@@ -1,0 +1,11 @@
+<div>
+    <h2 class="text-3xl font-bold mb-6 text-gray-900">👨‍💼 Staff Details</h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div *ngFor="let s of staff" class="bg-white border border-gray-200 rounded-xl shadow-md p-6 space-y-3">
+        <p><span class="font-semibold text-gray-700">Staff ID:</span> {{s.id}}</p>
+        <p><span class="font-semibold text-gray-700">Name:</span> {{s.name}}</p>
+        <p><span class="font-semibold text-gray-700">Position:</span> {{s.position}}</p>
+        <p><span class="font-semibold text-gray-700">Contact:</span> {{s.contact}}</p>
+      </div>
+    </div>
+  </div>

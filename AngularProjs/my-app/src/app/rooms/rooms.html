@@ -1,0 +1,22 @@
+<div class="m-6 space-y-12 text-gray-800 font-sans">
+  <h1 class="text-5xl font-extrabold text-indigo-700 tracking-tight">🏨 {{HotelName}}</h1>
+
+  <div class="bg-gray-50 border border-gray-200 shadow-md rounded-lg p-6 space-y-4">
+    <div *ngIf="!hideRooms" class="text-lg">
+      <p class="font-medium text-gray-700">Total number of available rooms:</p>
+      <p class="text-4xl font-bold" [ngStyle]="rooms.availableRooms > 0 ? { color: 'green' } : { color: 'red' }">
+        {{numberOfRooms}}
+      </p>
+    </div>
+    <button
+      class="px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition duration-200"
+      (click)="toggle()"
+    >
+      {{ hideRooms ? 'Show' : 'Hide' }} Room Count
+    </button>
+  </div>
+
+  <app-rooms-list [rooms]="roomlist"></app-rooms-list>
+
+  <app-staff-list [staff]="staffList"></app-staff-list>
+</div>

@@ -1,0 +1,51 @@
+<div style="text-align: center">
+  <h1
+    style="
+      color: red;
+      background-color: rgb(201, 201, 255);
+      text-align: center;
+      padding: 10px;
+      border-radius: 10px;
+      width: 200px;
+      margin: 10px auto;
+    "
+  >
+    {{count}}
+  </h1>
+
+  <button (click)="handleIncrement()"
+    style="
+      margin: 10px;
+      padding: 10px;
+      background-color: rgb(195, 253, 203);
+      border-radius: 10px;
+      border-color: transparent;
+    "
+  >
+    Increment
+  </button>
+
+  <button (click)="handleDecrement()"
+    style="
+      margin: 10px;
+      padding: 10px;
+      background-color: rgb(253, 8, 8);
+      border-radius: 10px;
+      border-color: transparent;
+    "
+  >
+    Decrement
+  </button>
+
+  <button (click)="handleReset()"
+    style="
+      margin: 10px;
+      padding: 10px;
+      background-color: rgb(12, 248, 130);
+      border-radius: 10px;
+      border-color: transparent;
+    "
+  >
+    Reset
+  </button>
+</div>

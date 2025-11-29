@@ -1,0 +1,88 @@
+<div
+  [ngClass]="{
+    'w-64': !isCollapsed,
+    'w-20': isCollapsed
+  }"
+  class="h-screen bg-gradient-to-b from-gray-900 to-black text-white flex flex-col transition-all duration-300 shadow-2xl"
+>
+
+  <!-- Toggle button -->
+  <div class="flex justify-end p-4">
+    <button (click)="toggleSidebar()" class="text-gray-400 hover:text-white transition">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          [attr.d]="
+            isCollapsed
+              ? 'M9 5l7 7-7 7'
+              : 'M15 19l-7-7 7-7'
+          "
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="flex-1 space-y-2 px-2">
+    <a
+      routerLink="/dashboard"
+      routerLinkActive="bg-red-600"
+      class="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800 hover:shadow-md transition"
+    >
+      <svg class="w-5 h-5 text-gray-300 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M3 12l2-2m0 0l7-7 7 7m-9 2v8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span *ngIf="!isCollapsed" class="text-sm">Dashboard</span>
+    </a>
+
+    <a routerLink="/courses" class="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800 transition">
+      <svg class="w-5 h-5 text-gray-300 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h9l7 7v9a2 2 0 01-2 2z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span *ngIf="!isCollapsed" class="text-sm">Courses</span>
+    </a>
+
+    <a routerLink="/students" class="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800 transition">
+      <svg class="w-5 h-5 text-gray-300 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M5.121 17.804A8.001 8.001 0 0112 15a8.001 8.001 0 016.879 2.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span *ngIf="!isCollapsed" class="text-sm">Students</span>
+    </a>
+
+    <a routerLink="/teachers" class="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800 transition">
+      <svg class="w-5 h-5 text-gray-300 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M8 16l4-4 4 4m0-8l-4 4-4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span *ngIf="!isCollapsed" class="text-sm">Teachers</span>
+    </a>
+
+    <a routerLink="/faculty" class="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800 transition">
+      <svg class="w-5 h-5 text-gray-300 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M3 10h11M9 21V3M17 16l4-4-4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span *ngIf="!isCollapsed" class="text-sm">Faculty</span>
+    </a>
+
+    <a routerLink="/settings" class="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800 transition">
+      <svg class="w-5 h-5 text-gray-300 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M12 8v4l3 3m6 0a9 9 0 11-6.219-8.56" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span *ngIf="!isCollapsed" class="text-sm">Settings</span>
+    </a>
+
+    <a routerLink="/logout" class="group flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800 transition">
+      <svg class="w-5 h-5 text-gray-300 group-hover:text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path d="M17 16l4-4m0 0l-4-4m4 4H7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+      <span *ngIf="!isCollapsed" class="text-sm">Logout</span>
+    </a>
+  </nav>
+</div>

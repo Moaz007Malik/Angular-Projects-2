@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": "20b0",
+      "USER_ID": 1,
+      "USER_NAME": "John Doe",
+      "USER_EMAIL": "johndoe@email.com",
+      "USER_PASSWORD": "hashed_password",
+      "USER_TYPE": "student",
+      "IS_AUTH_TO_REG": false,
+      "COURSES": [
+        {
+          "id": "20b0",
+          "COURSE_ID": 1,
+          "COURSE_NAME": "Math101",
+          "COURSE_DESC": "Introduction to Mathematics",
+          "COURSE_SEMESTER": "Fall",
+          "COURSE_YEAR": 2023,
+          "COURSE_TEACHER": [],
+          "COURSE_STUDENTS": []
+        }
+      ]
+    },
+    {
+      "id": "9ca9",
+      "USER_ID": 2,
+      "USER_NAME": "Jane Smith",
+      "USER_EMAIL": "janesmith@email.com",
+      "USER_PASSWORD": "hashed_password",
+      "USER_TYPE": "teacher",
+      "IS_AUTH_TO_REG": true,
+      "COURSES": []
+    }
+  ],
+  "courses": [
+    {
+      "id": "20b0",
+      "COURSE_ID": 1,
+      "COURSE_NAME": "Math101",
+      "COURSE_DESC": "Introduction to Mathematics",
+      "COURSE_SEMESTER": "Fall",
+      "COURSE_YEAR": 2023,
+      "COURSE_TEACHER": [],
+      "COURSE_STUDENTS": []
+    }
+  ]
+}

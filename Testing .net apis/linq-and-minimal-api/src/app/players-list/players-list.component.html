@@ -1,0 +1,192 @@
+<div class="p-4 m-4">
+  <h1 class="text-3xl font-bold mb-4">All Players List</h1>
+  <div *ngFor="let player of players" class="mb-4 p-4 border-b">
+    <h2 class="text-xl font-semibold">{{ player.name }}</h2>
+    <p>Games: {{ player.gameLibrary.length }}</p>
+  </div>
+
+  <div>
+    <h2 class="text-xl font-bold mb-2">All Games</h2>
+    <ul class="list-disc ml-6">
+      <li *ngFor="let game of getAllGames()">
+        <span class="font-medium">{{ game.name }}</span> —
+        <em>{{ game.genre }}</em>
+      </li>
+    </ul>
+    <div *ngIf="getAllGames().length === 0" class="text-gray-500 italic">
+      No games available.
+    </div>
+  </div>
+
+  <div class="mt-6 border-t pt-4">
+    <h2 class="text-xl font-bold mb-2">Find Player by ID</h2>
+    <input
+      type="number"
+      #playerIdInput
+      class="border p-2 rounded-md"
+      placeholder="Player ID"
+      aria-label="Player ID"
+    />
+    <button
+      class="bg-blue-600 text-white px-4 py-2 rounded ml-2"
+      (click)="loadPlayerById(playerIdInput.valueAsNumber)"
+    >
+      Show Player
+    </button>
+  </div>
+
+  <div *ngIf="selectedPlayer" class="mt-6 p-4 border rounded-md bg-gray-50">
+    <h3 class="text-2xl font-semibold mb-2">Selected Player</h3>
+    <p class="text-lg font-medium">{{ selectedPlayer.name }}</p>
+    <p class="text-sm text-gray-600 mb-2">ID: {{ selectedPlayer.id }}</p>
+
+    <h4 class="font-semibold mt-2">Game Library:</h4>
+    <ul
+      *ngIf="!editMode && selectedPlayer.gameLibrary.length > 0"
+      class="list-disc ml-6"
+    >
+      <li *ngFor="let game of selectedPlayer.gameLibrary">
+        <span class="font-medium">{{ game.name }}</span> —
+        <em>{{ game.genre }}</em>
+      </li>
+    </ul>
+
+    <div *ngIf="editMode">
+      <label class="block my-2 font-medium">Edit Name:</label>
+      <input
+        [(ngModel)]="newPlayer.name"
+        class="border p-2 rounded w-full"
+        aria-label="Edit Name"
+      />
+
+      <h4 class="mt-4 font-semibold">Edit Game Library:</h4>
+      <div
+        *ngFor="let game of newPlayer.gameLibrary; let i = index"
+        class="flex space-x-2 my-2"
+      >
+        <input
+          [(ngModel)]="game.name"
+          class="border p-2 rounded w-1/2"
+          placeholder="Game Name"
+          aria-label="Game Name"
+        />
+        <input
+          [(ngModel)]="game.genre"
+          class="border p-2 rounded w-1/2"
+          placeholder="Genre"
+          aria-label="Genre"
+        />
+        <button
+          type="button"
+          class="bg-red-500 text-white px-2 rounded"
+          (click)="removeGameFromSelectedPlayer(i)"
+        >
+          X
+        </button>
+      </div>
+      <button
+        class="bg-blue-500 text-white px-4 py-2 rounded"
+        (click)="addGameToSelectedPlayer()"
+      >
+        Add Game
+      </button>
+
+      <div class="mt-4 space-x-2">
+        <button
+          class="bg-green-600 text-white px-4 py-2 rounded"
+          (click)="updatePlayer()"
+        >
+          Save
+        </button>
+        <button
+          class="bg-gray-400 text-white px-4 py-2 rounded"
+          (click)="editMode = false"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <div
+      *ngIf="!editMode && selectedPlayer.gameLibrary.length === 0"
+      class="text-gray-500 italic"
+    >
+      No games in library.
+    </div>
+
+    <div class="mt-4 space-x-2">
+      <button
+        class="bg-yellow-500 text-white px-4 py-2 rounded"
+        (click)="toggleEdit()"
+      >
+        Edit
+      </button>
+      <button
+        class="bg-red-600 text-white px-4 py-2 rounded"
+        (click)="deletePlayer(selectedPlayer.id)"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="!selectedPlayer && playerIdInput.value">
+    <p class="text-red-500 italic mt-4">No player found with that ID.</p>
+  </div>
+
+  <form class="mt-6 border-t pt-4">
+    <h2 class="text-xl font-bold mb-2">Add New Player</h2>
+
+    <label class="block mb-2">Name:</label>
+    <input
+      [(ngModel)]="newPlayer.name"
+      name="playerName"
+      class="border p-2 rounded w-full mb-4"
+      placeholder="Enter player name"
+      aria-label="Enter player name"
+    />
+
+    <div
+      *ngFor="let game of newPlayer.gameLibrary; let i = index"
+      class="flex space-x-2 mb-2"
+    >
+      <input
+        [(ngModel)]="game.name"
+        name="gameName{{ i }}"
+        class="border p-2 rounded flex-1"
+        placeholder="Game Name"
+        aria-label="Game Name"
+      />
+      <input
+        [(ngModel)]="game.genre"
+        name="gameGenre{{ i }}"
+        class="border p-2 rounded flex-1"
+        placeholder="Genre"
+        aria-label="Genre"
+      />
+      <button
+        type="button"
+        (click)="removeGame(i)"
+        class="bg-red-600 text-white px-2 rounded"
+      >
+        X
+      </button>
+    </div>
+
+    <button
+      type="button"
+      (click)="addGame()"
+      class="bg-blue-600 text-white px-4 py-2 rounded"
+    >
+      Add Game
+    </button>
+
+    <button
+      type="button"
+      class="bg-green-600 text-white px-4 py-2 rounded ml-2"
+      (click)="addPlayer()"
+    >
+      Add Player
+    </button>
+  </form>
+</div>

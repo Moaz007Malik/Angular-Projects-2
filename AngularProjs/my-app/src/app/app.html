@@ -1,0 +1,25 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<style type="text/tailwindcss">
+  @theme {
+    --color-clifford: #da373d;
+  }
+</style>
+
+<main class="main">
+  <!-- <div class="bg-red-500">Test</div> -->
+</main>
+
+<div [ngSwitch]="role">
+  <div *ngSwitchCase="'User'">
+    Welcome User!
+  </div>
+  <div *ngSwitchCase="'Admin'">
+    <app-rooms></app-rooms>
+  </div>
+  <div *ngSwitchDefault>
+    You're not authorized to view this page.
+  </div>
+</div>
+
+<router-outlet />

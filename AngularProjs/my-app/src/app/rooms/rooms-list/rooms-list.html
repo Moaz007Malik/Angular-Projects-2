@@ -1,0 +1,30 @@
+<div *ngIf="rooms.length > 0">
+  <h2 class="text-3xl font-bold mb-6 text-gray-900">🛏️ Room Details</h2>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div
+      *ngFor="let room of rooms; let i = index; let e = even"
+      [ngClass]="e ? 'bg-gray-50' : 'bg-white'"
+      class="border border-gray-200 rounded-xl shadow-md p-6 space-y-3"
+    >
+      <p>
+        <span class="font-semibold text-gray-700">Index:</span> {{i}}
+        <span class="font-semibold text-gray-700 ml-2">({{e ? 'Even' : 'Odd'}})</span>
+      </p>
+      <p><span class="font-semibold text-gray-700">Type:</span> {{room.roomType}}</p>
+      <p><span class="font-semibold text-gray-700">Amenities:</span> {{room.amenities | titlecase}}</p>
+
+      <div>
+        <span class="font-semibold text-gray-700">Photo:</span>
+        <img
+          [src]="room.photos"
+          alt="Room Image"
+          class="w-full h-52 object-cover rounded-md mt-2 border border-gray-100"
+        />
+      </div>
+
+      <p><span class="font-semibold text-gray-700">Price:</span> {{room.price | currency: 'PKR':'symbol':'1.0-0'}}</p>
+      <p><span class="font-semibold text-gray-700">Check-in:</span> {{ room.checkinTime | date:'medium' }}</p>
+      <p><span class="font-semibold text-gray-700">Check-out:</span> {{ room.checkoutTime | date:'medium' }}</p>
+    </div>
+  </div>
+</div>

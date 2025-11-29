@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "USER_ID": 1001,
+      "USER_NAME": "Dr. Emily Carter",
+      "USER_EMAIL": "faculty@email.com",
+      "USER_PASSWORD": "faculty_pass",
+      "USER_TYPE": "faculty",
+      "IS_AUTH_TO_REG": true,
+      "id": "f001"
+    },
+    {
+      "id": "e14e",
+      "USER_ID": "3",
+      "USER_NAME": "Test User",
+      "USER_EMAIL": "testing@testing.com",
+      "USER_PASSWORD": "123456",
+      "USER_TYPE": "teacher",
+      "COURSES": [
+        "Test Course"
+      ],
+      "IS_AUTH_TO_REG": false
+    },
+    {
+      "USER_ID": "1",
+      "USER_NAME": "Test User",
+      "USER_EMAIL": "testuser@test.com",
+      "USER_PASSWORD": "123456",
+      "USER_TYPE": "student",
+      "IS_AUTH_TO_REG": false,
+      "COURSES": [
+        "Test Course"
+      ],
+      "id": "cb4e"
+    }
+  ],
+  "courses": [
+    {
+      "id": "30d1",
+      "COURSE_ID": 1,
+      "COURSE_NAME": "Test Course",
+      "COURSE_DESC": "asdasdasdasdas",
+      "COURSE_CODE": "test123",
+      "COURSE_TEACHER": [
+        "Test User"
+      ],
+      "COURSE_STUDENTS": [
+        "Test User"
+      ]
+    }
+  ]
+}
